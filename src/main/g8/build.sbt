@@ -10,11 +10,11 @@ lazy val root = (project in file("."))
   .settings(
     name := "$name$",
     testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework"),
-    libraryDependencies ++= Seq(zioTest, zioTestSBT, zioTestMagnolia, `zio-http`),
+    libraryDependencies ++= Seq(zioHttp, zioTest, zioTestSBT, zioTestMagnolia),
   )
   .settings(
     Docker / version          := version.value,
-    Compile / run / mainClass := Option("$package$.$name;format="Camel"$"),
+    Compile / run / mainClass := Option("$package$.MainApp"),
   )
 
 addCommandAlias("fmt", "scalafmt; Test / scalafmt; sFix;")
