@@ -14,6 +14,7 @@ lazy val root = (project in file("."))
   )
   .settings(
     Docker / version          := version.value,
+    dockerBaseImage := "eclipse-temurin:20.0.1_9-jre",  
     Compile / run / mainClass := Option("$package$.MainApp"),
   )
 

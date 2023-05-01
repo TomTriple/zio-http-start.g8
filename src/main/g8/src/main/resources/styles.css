@@ -1,0 +1,40 @@
+html, body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+}
+
+a, a:visited {
+    color: black;
+}
+
+#starter {
+    margin-top: 100px;
+}
+
+#starter ul {
+    list-style: none;
+    padding: 0px;
+}
+
+#starter ul li:nth-child(2) {
+    padding: 30px 0px 30px 0px;
+}
+
+#starter li {
+    display:block;
+    padding:5px;
+}
+#starter a, #starter h2, #starter pre, #starter b {
+    margin: 0 auto;
+    display:block;
+    text-align:center;
+    width:500px;
+}
+
+#starter h2 {
+    font-size: 2em;
+}
+
+#starter b {
+    padding-top: 30px;
+}
