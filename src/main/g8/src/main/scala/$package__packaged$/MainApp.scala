@@ -88,7 +88,7 @@ object MainApp extends ZIOAppDefault {
             div(
               ul(
                 li(h4("Start your app with SBT-Revolver")), 
-                li(pre("sbt:blipp> ~reStart")),
+                li(pre("sbt:$name;format="norm"$> ~reStart")),
               ), 
               p("""Your app will be reloaded whenever your source code changes"""),
               p("""Besides SBT-Revolver this starter project also contains other useful <a href="https://zio.dev/zio-http/setup#includes">SBT plugins</a>"""),
@@ -103,7 +103,7 @@ object MainApp extends ZIOAppDefault {
             div(
               ul(
                 li(h4("Build a local docker image directly from SBT")), 
-                li(pre("sbt:blipp> docker:publishLocal")), 
+                li(pre("sbt:$name;format="norm"$> Docker / publishLocal")), 
                 li(h4("Then run a container")), 
                 li(pre("\$ docker run -p 8080:8080 $name;format="norm"$:$version$")),
                 li(h4("""Then point a browser at <a href="http://localhost:8080">http://localhost:8080</a>""")),
