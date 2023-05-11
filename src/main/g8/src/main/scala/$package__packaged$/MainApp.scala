@@ -8,11 +8,12 @@ import zio.http.html.{html => html5, _}
 object MainApp extends ZIOAppDefault {
 
 
+
   //
   // Application HTML-Layout 
   //
 
-  def withContentHtml(contentTitle:zio.http.html.Html)(content: zio.http.html.Html) = {
+  def withContentHtml(contentTitle:zio.http.html.Html)(content: zio.http.html.Html) = 
     html5(
       head(
         title("ZIO Http"), 
@@ -39,21 +40,21 @@ object MainApp extends ZIOAppDefault {
         )
       )
     ) 
-  }
+
 
 
   //
   // Web Assets
   //
 
-  def makeWebAssets:App[Any] = 
-    Http.collectHandler[Request] {
+  def makeWebAssets: Http[Any, Throwable, Request, Response] = 
+    Http.collectHttp[Request] {
       case Method.GET -> !! / "assets" / asset =>
         Http.fromFile(
           new java.io.File(s"./src/main/resources/\${asset}")
-        ).toHandler(Handler.notFound)
-    }.withDefaultErrorResponse    
-  
+        )
+    }
+
 
 
   //
@@ -170,6 +171,7 @@ Endpoint
   }
 
 
+
   //
   // Render a Http Not Found
   //
@@ -190,6 +192,7 @@ Endpoint
           Status.NotFound
         )
     }
+
 
 
   //
@@ -217,6 +220,7 @@ Endpoint
         )
       )
     )
+
 
 
   //
