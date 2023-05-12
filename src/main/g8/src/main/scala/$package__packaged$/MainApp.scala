@@ -50,9 +50,7 @@ object MainApp extends ZIOAppDefault {
   def makeWebAssets: Http[Any, Throwable, Request, Response] = 
     Http.collectHttp[Request] {
       case Method.GET -> !! / "assets" / asset =>
-        Http.fromFile(
-          new java.io.File(s"./src/main/resources/\${asset}")
-        )
+        Http.fromResource(asset)
     }
 
 
